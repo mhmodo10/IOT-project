@@ -8,6 +8,9 @@ Het idee is dat ik een grondvochtigheid sensor aan een rasberry pi koppel en dat
 **IoT device en sensor**
 
 De eerste stap die ik heb genomen bij het bouwen van mijn project, was een grondvochtigheid sensor op een raspberry pi aansluiten en kijken of er water te vinden is. Ik heb de sensor door middel van GPIO pinnen en een breadbord aangesloten op de raspberry pi. Hieronder vindt u een foto van hoe ik de sensor heb aangesloten op de raspberry pi.
+![](/Raspberry_pi/Images/raspberry_pi_to_sensor.jpg)
+
+![/Raspberry_pi/Images/sensor_connection.jpg]
 
 **Temperatuur lezen met python**
 
