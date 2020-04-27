@@ -34,7 +34,10 @@ Om verder gebruik te kunnen maken van de data uit de sensor, heb ik thingspeak g
 
 **Android Applicatie**
 
-Nadat het gelukt was om data op thingspeak te zetten, was het tijd om aan de android applicatie te beginnen. Om te beginnen heb ik ontwerpen gemaakt voor de pagina’s van app. De ontwerpen zijn in de folder “Android_applicatie” op mijn repository te vinden. Voor de applicatie heb ik android studio gebruikt. Als de gebruiker voor het eerst de app gebruikt, komt hij/zij op een pagina waarop die de plant kan toevoegen. De gebruiker kan dan een naam geven aan de plant, een foto toevoegen en een uit de volgende opties kiezen voor hoe vaak de app moet checken of de plant water nodig heeft: 
+Nadat het gelukt was om data op thingspeak te zetten, was het tijd om aan de android applicatie te beginnen. Om te beginnen heb ik ontwerpen gemaakt voor de pagina’s van app. 
+Hieronder kunt u de ontwerpen van de app zien:
+![](Android_applicatie/Designs/plant_monitoring_app_designs.png)
+Voor de applicatie heb ik android studio gebruikt. Als de gebruiker voor het eerst de app gebruikt, komt hij/zij op een pagina waarop die de plant kan toevoegen. De gebruiker kan dan een naam geven aan de plant, een foto toevoegen en een uit de volgende opties kiezen voor hoe vaak de app moet checken of de plant water nodig heeft: 
 -	Elke dag.
 -	Elke x aantal dagen.
 -	Dagen van de week (bijv. elke dinsdag)
