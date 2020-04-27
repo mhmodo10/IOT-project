@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#225643</color>
+    <color name="colorPrimaryDark">#18412d</color>
+    <color name="colorAccent">#00a76a</color>
+    <color name="weekDaysColor">#FF808080</color>
+</resources>
