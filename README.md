@@ -11,6 +11,9 @@ Het idee is dat ik een grondvochtigheid sensor aan een rasberry pi koppel en dat
 - Dreadbord
 - Female to male jumper draden
 - Android smartphone
+- Internetverbinding
+- Android studio (voor android development)
+- Python
 
 **IoT device en sensor**
 
