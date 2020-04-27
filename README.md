@@ -5,6 +5,13 @@ Het IoT project dat ik heb gebouwd voor het vak data science voor IoT is een pla
 Het idee is dat ik een grondvochtigheid sensor aan een rasberry pi koppel en dat ik daarmee kan controleren of een plant water nodig heeft, vervolgens wilde ik de data die ik van de rasberry pi krijg, in een app verwerken. Het idee van de app is dat die de gebruiker laat kiezen hoevaak hij/zij wil dat de app gaat checken of de plant water nodig heeft. Als de plant water nodig heeft dan krijgt de gebruiker een notificatie.
 ![](/Raspberry_pi/Images/data_pipeline.png)
 
+**Benodigdheden**
+- Raspberry pi 4
+- Grondvochtigheid sensor
+- Dreadbord
+- Female to male jumper draden
+- Android smartphone
+
 **IoT device en sensor**
 
 De eerste stap die ik heb genomen bij het bouwen van mijn project, was een grondvochtigheid sensor op een raspberry pi aansluiten en kijken of er water te vinden is. Ik heb de sensor door middel van GPIO pinnen en een breadbord aangesloten op de raspberry pi. Hieronder vindt u een foto van hoe ik de sensor heb aangesloten op de raspberry pi.
@@ -19,6 +26,7 @@ Nadat ik de sensor heb aangesloten op de raspberry pi, heb ik een script geschre
 **Thingspeak**
 
 Om verder gebruik te kunnen maken van de data uit de sensor, heb ik thingspeak gebruikt. Thingspeak is een IoT platform die je kan gebruiken om data van je sensor op te slaan, daarnaast kan je op thingspeak een overzicht krijgen van je data d.m.v. grafieken. Via een python script stuur ik elke 5 minuten de data van mijn sensor naar thingspeak. (Het script is in mijn repository te vinden in de folder “Raspberry_pi”)
+
 [Klik hier voor mijn repository op thingspeak](https://thingspeak.com/channels/1029560)
 
 **Android Applicatie**
