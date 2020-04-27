@@ -3,10 +3,14 @@
 
 Het IoT project dat ik heb gebouwd voor het vak data science voor IoT is een plantmonitoring systeem.
 Het idee is dat ik een grondvochtigheid sensor aan een rasberry pi koppel en dat ik daarmee kan controleren of een plant water nodig heeft, vervolgens wilde ik de data die ik van de rasberry pi krijg, in een app verwerken. Het idee van de app is dat die de gebruiker laat kiezen hoevaak hij/zij wil dat de app gaat checken of de plant water nodig heeft. Als de plant water nodig heeft dan krijgt de gebruiker een notificatie.
+![](/Raspberry_pi/Images/data_pipeline.png)
 
 **IoT device en sensor**
 
 De eerste stap die ik heb genomen bij het bouwen van mijn project, was een grondvochtigheid sensor op een raspberry pi aansluiten en kijken of er water te vinden is. Ik heb de sensor door middel van GPIO pinnen en een breadbord aangesloten op de raspberry pi. Hieronder vindt u een foto van hoe ik de sensor heb aangesloten op de raspberry pi.
+![](/Raspberry_pi/Images/raspberry_pi_to_sensor.jpg)
+
+![/Raspberry_pi/Images/sensor_connection.jpg]
 
 **Temperatuur lezen met python**
 
