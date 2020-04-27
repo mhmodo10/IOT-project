@@ -12,14 +12,14 @@ De eerste stap die ik heb genomen bij het bouwen van mijn project, was een grond
 
 ![](/Raspberry_pi/Images/sensor_connection.jpg)
 
-**Temperatuur lezen met python**
+**Data uit de sensor lezen met python**
 
 Nadat ik de sensor heb aangesloten op de raspberry pi, heb ik een script geschreven om de data uit de sensor te lezen. De script leest elke 5 minuten de data uit de sensor. Toen dit gelukt was, was het tijd om de data van de sensor op thingspeak te zetten. Daarvoor was een internetverbinding nodig, dus ik heb de raspberry pi met de wifi verbonden. 
 
 **Thingspeak**
 
-Om verder gebruik te kunnen maken van de data uit de sensor, heb ik thingspeak gebruikt. Thingspeak is een IoT platform die je kan gebruiken om data van je sensor op te slaan, daarnaast kan je op thingspeak een overzicht krijgen van je data d.m.v. een grafiek. Via een python script stuur ik elke 5 minuten de data van mijn sensor naar thingspeak. (Het script is in mijn repository te vinden in de folder “Raspberry_pi”)
-Klik hier voor mijn repository op thingspeak
+Om verder gebruik te kunnen maken van de data uit de sensor, heb ik thingspeak gebruikt. Thingspeak is een IoT platform die je kan gebruiken om data van je sensor op te slaan, daarnaast kan je op thingspeak een overzicht krijgen van je data d.m.v. grafieken. Via een python script stuur ik elke 5 minuten de data van mijn sensor naar thingspeak. (Het script is in mijn repository te vinden in de folder “Raspberry_pi”)
+[Klik hier voor mijn repository op thingspeak](https://thingspeak.com/channels/1029560)
 
 **Android Applicatie**
 
