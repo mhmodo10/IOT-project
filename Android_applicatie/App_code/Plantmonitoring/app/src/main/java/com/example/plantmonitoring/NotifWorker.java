@@ -47,12 +47,14 @@ public class NotifWorker extends Worker {
 
     }
 
+    //runs whenever this class is called
     @NonNull
     @Override
     public Result doWork() {
         DatabaseHelper db = new DatabaseHelper(getApplicationContext());
         Cursor data = db.getPlant();
 
+        //gets data from database
         while(data.moveToNext()){
             checkMode = data.getInt(1);
             amountDays = data.getInt(2);
@@ -60,6 +62,8 @@ public class NotifWorker extends Worker {
         }
         String thingSpeakUrl = "https://api.thingspeak.com/channels/1029560/feeds.json?api_key=9ZGRTHTBGCKI6EFV&results=2";
         OkHttpClient client = new OkHttpClient();
+
+        //sends request to read data from thingspeak channel
         Request request = new Request.Builder()
                 .url(thingSpeakUrl)
                 .build();
@@ -74,6 +78,7 @@ public class NotifWorker extends Worker {
                 if(response.isSuccessful()){
                     String thingSpeakResponse = response.body().string();
                     try {
+                        //handles the response from thingspeak
                         JSONObject responseJson = new JSONObject(thingSpeakResponse);
                         JSONArray feedArray = responseJson.getJSONArray("feeds");
                         JSONObject channelArray = responseJson.getJSONObject("channel");
@@ -81,6 +86,8 @@ public class NotifWorker extends Worker {
                         int lastSensorUpdateIndex = lastEntryId - 1;
                         JSONObject SensorOutputArray = feedArray.getJSONObject(lastSensorUpdateIndex);
                         SensorOutput = SensorOutputArray.getString("field1");
+
+                        //checks if the plant needs water
                         if(SensorOutput.equals("1")){
                             Log.d("TAG", "in if statement: ");
                             if(checkMode == 3){
@@ -107,6 +114,8 @@ public class NotifWorker extends Worker {
 
         return Result.success();
     }
+
+    //notifies the user that the plant needs water
     private void MakeNotification(){
         Log.d("Notification", "the worker is working");
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -115,8 +124,6 @@ public class NotifWorker extends Worker {
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
             channel.setDescription(description);
-            // Register the channel with the system; you can't change the importance
-            // or other notification behaviors after this
             NotificationManager notificationManager = getApplicationContext().getSystemService(NotificationManager.class);
             if (notificationManager != null) {
                 notificationManager.createNotificationChannel(channel);
@@ -129,7 +136,6 @@ public class NotifWorker extends Worker {
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getApplicationContext());
 
-// notificationId is a unique int for each notification that you must define
         int notificationId = 1;
         notificationManager.notify(notificationId, builder.build());
     }

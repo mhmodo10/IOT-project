@@ -24,6 +24,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         super(context, PLANT_TABLE, null, 1);
     }
 
+    //creates the table
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createTableQuery = "CREATE TABLE " + PLANT_TABLE
@@ -35,6 +36,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(createTableQuery);
 
     }
+
+    //adds new plant
     public boolean addPlant(String plantName, int checkMode, int amountDays, String chosenDays, String imageUri){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -51,25 +54,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public boolean editPlant(String plantName, int checkMode, int amountDays, String chosenDays, String imageUri){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(PLANT_NAME,plantName);
-        contentValues.put(PLANT_CHECK_MODE,checkMode);
-        contentValues.put(AMOUNT_DAYS,amountDays);
-        contentValues.put(CHOSEN_DAYS,chosenDays);
-        contentValues.put(PLANT_IMAGE_URI,imageUri);
-
-        long data = db.update(PLANT_TABLE,contentValues," WHERE ID = 1",null);
-        if(data == -1){
-            return false;
-        }
-        else {
-            return true;
-        }
-
-    }
-
+    //gets the last added plant
     public Cursor getPlant(){
 
         SQLiteDatabase db = this.getWritableDatabase();

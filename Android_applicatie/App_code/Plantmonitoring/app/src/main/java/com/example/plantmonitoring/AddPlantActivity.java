@@ -95,7 +95,7 @@ public class AddPlantActivity extends AppCompatActivity {
         });
     }
 
-
+    //gets the chosen image
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -106,6 +106,7 @@ public class AddPlantActivity extends AppCompatActivity {
         }
     }
 
+    //checks if storage permissions are given and calls ChoosePic()
     private void addPicture(){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
             if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED ){
@@ -122,6 +123,8 @@ public class AddPlantActivity extends AppCompatActivity {
             ChoosePic();
         }
     }
+
+    //checks if all fields are filled in, saves the data and instantiates the PeriodicWorkRequest to make notifications
     private void SavePlant(){
         String plantName = plantNameInput.getText().toString();
         if(plantName.equals("")){
@@ -193,6 +196,7 @@ public class AddPlantActivity extends AppCompatActivity {
         }
     }
 
+    //gets the data from the sqlite database to be able to edit it
     private void getDataFromDatabase(){
         DatabaseHelper db = new DatabaseHelper(getApplicationContext());
         Cursor data = db.getPlant();
@@ -229,6 +233,7 @@ public class AddPlantActivity extends AppCompatActivity {
 
         }
     }
+
     //starts the activity of taking a pic
     private void ChoosePic(){
         Intent chooseImageFromGallery = new Intent(Intent.ACTION_OPEN_DOCUMENT);
@@ -236,16 +241,8 @@ public class AddPlantActivity extends AppCompatActivity {
         startActivityForResult(chooseImageFromGallery,PICK_IMAGE_CODE);
 
     }
-    private File createTakenPictureFile() throws IOException {
-        // Create an image file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.GERMANY).format(new Date());
-        String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(imageFileName, ".jpg", storageDir);
-        // Save a file: path for use with ACTION_VIEW intents
-        takenPicturePath = image.getAbsolutePath();
-        return image;
-    }
+
+    //handles the seekbar changes
     private void chooseDaysAmount() {
         daysAmountBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -266,6 +263,7 @@ public class AddPlantActivity extends AppCompatActivity {
         });
     }
 
+    //initializes all variables of the view
     private void initializeVars() {
         backBtn = findViewById(R.id.back_btn);
         addPicBtn = findViewById(R.id.add_plant_pic);
@@ -288,6 +286,7 @@ public class AddPlantActivity extends AppCompatActivity {
         addPlantBtn = findViewById(R.id.submit_plant);
     }
 
+    //gets called when the third radio button gets toggled
     public void thirdChoiceClicked(View view) {
         chosenFrequency = 3;
         daysAmountBar.setVisibility(View.GONE);
@@ -295,6 +294,7 @@ public class AddPlantActivity extends AppCompatActivity {
         chosenAmountDays = 1;
     }
 
+    //gets called when the second radio button get toggled
     public void secondChoiceClicked(View view) {
         chosenFrequency = 2;
         daysAmountBar.setVisibility(View.VISIBLE);
@@ -308,6 +308,7 @@ public class AddPlantActivity extends AppCompatActivity {
         chosenDays.clear();
     }
 
+    //gets called when the first radio button gets called
     public void firstChoiceClicked(View view) {
         chosenFrequency = 1;
         daysAmountBar.setVisibility(View.GONE);
@@ -323,7 +324,7 @@ public class AddPlantActivity extends AppCompatActivity {
         chosenAmountDays = 1;
     }
 
-
+    //handles week days selection
     private void chooseWeekDay(){
         monday.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -426,6 +427,8 @@ public class AddPlantActivity extends AppCompatActivity {
             }
         });
     }
+
+    //used to toggle first radio button when in edit mode
     private void FirstRadioChosen(){
         everyDay.toggle();
         chosenFrequency = 1;
@@ -441,6 +444,8 @@ public class AddPlantActivity extends AppCompatActivity {
         chosenDays.clear();
         chosenAmountDays = 1;
     }
+
+    //used to toggle second radio button when in edit mode
     private void SecondRadioChosen(int amountDays){
         everyXDays.toggle();
         everyXDays.setText(String.format(Locale.US,"Every %d Days", amountDays));
@@ -456,6 +461,8 @@ public class AddPlantActivity extends AppCompatActivity {
         sunday.setTextColor(getColor(R.color.weekDaysColor));
         chosenDays.clear();
     }
+
+    //used to toggle third radio button when in edit mode
     private void ThirdRadioChosen(String weekDays){
         everyWeekDay.toggle();
         chosenFrequency = 3;

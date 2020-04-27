@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //initializes all view variables
     private void initianlize() {
         closeBtn = findViewById(R.id.close_btn);
         editBtn = findViewById(R.id.edit_plant);
@@ -59,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
         frequencyType = findViewById(R.id.frequency_type);
         plantImage = findViewById(R.id.plant_image);
     }
+
+    //gets data from database and sets the right values to the right view components
     private void getDataFromDatabase(){
         DatabaseHelper db = new DatabaseHelper(getApplicationContext());
         Cursor data = db.getPlant();
